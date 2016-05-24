@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DUI DATA VISUALIZATION</title>
+  <title>Drunk Driving Fatality</title>
 
   <!-- Libraries -->
   <script src="https://code.jquery.com/jquery.min.js"></script>
@@ -22,18 +22,13 @@
 
 <body>
     <div class="container" ng-app="myApp" id="app" ng-controller="MainController">
-      <h1>TITLE</h1>
-        <scroll class="scroller" ng-style="{'height':'100vh','width':'86vw'}">
-          <!-- Use ng-repeat to have a section of text for each element in your sectionText data
-              Calculate the height of the last element as the height of the scroller directive
-          -->
-          <div ng-repeat="section in sectionText" ng-style="$last == true && {'height':'calc(100vh - ' + sectionHeight + 'px)'} || {'height':sectionHeight + 'px'}">
-
-            <!-- Paragraph for each section of text, with class 'selected' if $index is current step -->
+        <h1> TITLE </h1>
+        <scroll class="scroller" ng-style="{'height':'100vh'}">
+          <div ng-repeat="section in sectionText" ng-style="$last == true && {'height':'calc(100%)'} || {'height':sectionHeight + 'px'}">
             <p ng-class="{selected: $index == step}" ng-bind=section.text></p>
-
           </div>
         </scroll>
+
     </div>
   </body>
 </html>

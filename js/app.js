@@ -30,7 +30,8 @@ var myApp = angular.module('myApp', [])
      ];
 
      // Desired section height
-     $scope.sectionHeight = 400;
+     $scope.sectionHeight = 200;
+
  })
 
 // Projects controller
@@ -47,9 +48,12 @@ var myApp = angular.module('myApp', [])
       scope:false, // use global scope
       // Create a link function that allows dynamic element creation
       link:function(scope, elem) {
-          elem.bind("scroll", function() {
-              scope.step = Math.ceil((this.scrollTop - 10)/ scope.sectionHeight);
+      	// console.log('test')
+          angular.element($window).bind("scroll", function() {
+              scope.step = Math.ceil(($(window).scrollTop() - $("scroll.scroller").offset()["top"])/scope.sectionHeight);
               scope.$apply();
+              console.log($(window).scrollTop());
+              console.log($("scroll.scroller").offset()["top"]);
           });
       }
     };
