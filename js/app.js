@@ -30,7 +30,7 @@ var myApp = angular.module('myApp', [])
      ];
 
      // Desired section height
-     $scope.sectionHeight = 200;
+     $scope.sectionHeight = 800;
 
  })
 
