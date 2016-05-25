@@ -5,28 +5,28 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
      // Data for the chart
      $scope.data = [
-       {id:0, text:'Paragraph 0',diameter: 1443},
-       {id:1, text:'Paragraph 1',diameter: 2132},
-       {id:2, text:'Paragraph 2',diameter: 3234},
-       {id:3, text:'Paragraph 3',diameter: 5432}
+       {id:0, text:'Bubble 1'},
+       {id:1, text:'Bubble 2'},
+       {id:2, text:'Bubble 3'},
+       {id:3, text:'Bubble 4'}
      ];
 
      // Array of objects that correspond to each step
      $scope.settings = [
-       {diameter: 1443,filter:function(d){return d.id == 0}},
-       {diameter: 2132,filter:function(d){return d.id == 1}},
-       {diameter: 3234,filter:function(d){return d.id == 2}},
-       {diameter: 5432,filter:function(d){return d.id == 3}}
+       {diameter: 84,filter:function(d){return d.id == 0}},
+       {diameter: 113,filter:function(d){return d.id == 1}},
+       {diameter: 223,filter:function(d){return d.id == 2}},
+       {diameter: 343,filter:function(d){return d.id == 3}}
      ];
 
      $scope.step = 0;
 
      // Text for each section
      $scope.sectionSet = [
-       {text:'Section 0',color:'yellow'},
-       {text:'Section 1',color:'royalblue'},
-       {text:'Section 2',color:'orange'},
-       {text:'Section 3',color:'red'}
+       {text:'Section 1',color:'yellow'},
+       {text:'Section 2',color:'royalblue'},
+       {text:'Section 3',color:'orange'},
+       {text:'Section 4',color:'red'}
      ];
 
      // Desired section height
@@ -74,13 +74,14 @@ var myApp = angular.module('myApp', [])
         var myChart = BubbleChart().diameter(diameter);
 
         // Get the current data
-        var currentData = scope.data.filter(scope.settings[scope.step].filter);
+        // var currentData = scope.data.filter(scope.settings[scope.step].filter);
+        var currentData = scope.data.filter(function(d){ return d.id == scope.step});
+
         console.log(currentData)
-        console.log(scope.step)
   			// Wrapper element to put your svg (chart) in
   			wrapper = d3.select(elem[0])
-          .datum(currentData)
-          .call(myChart);
+          	.datum(currentData)
+          	.call(myChart);
 			});
 		}
 	};

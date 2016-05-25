@@ -2,8 +2,8 @@ var BubbleChart = function() {
 
 	// Assign default values for each variables.	
 	var diameter = 800,
-		width = 200,
-	 	height = 200;
+		width = 800,
+	 	height = 800;
 
 	// Chart function to draw the bubble chart 	
     var bbChart = function(selection) {
@@ -13,23 +13,26 @@ var BubbleChart = function() {
 	   		var div = d3.select(this);
 
 	   		// Set svg for showing all bubbles
-			var svg = div.append("svg")
+			var svg = div.selectAll(".bubble").data(data,function(d) {return d.id});
+			    svg.enter().insert("svg")
 		 		   .attr("width", width)
 		 		   .attr("height", height)
 		 		   .attr("class","bubble");
 
+			    svg.exit().remove();
+
 			var circle = svg.selectAll("circle").data(data,function(d) {return d.id});
 			  
-			circle.enter().append("circle")
+			circle.enter().insert("circle")
 		  			 .attr("r","0")
+		 			 .attr("transform", function(d) { return "translate(300,100)"; })
 		  			 .style("fill","white");
 
 		    circle.exit().remove();
 
             circle.transition()
              .duration(1000)
-			 .attr("r", diameter%50)
-			 .attr("transform", function(d) { return "translate(100,100)"; })
+			 .attr("r", diameter/2)
 			 .style("fill",'aliceblue');
 
 
@@ -38,6 +41,7 @@ var BubbleChart = function() {
 			       .data(data, function(d) {return d.id}); 
 
 			text.enter().append("text")
+    					.attr("transform", function(d) { return "translate(300,100)"; })
 			  	        .style("fill","white");
 
 			text.exit().remove();
@@ -46,7 +50,6 @@ var BubbleChart = function() {
  			 .duration(1000)
 			 .style("text-anchor", "middle")
 			 .attr("dy", ".3em")
-			 .attr("transform", function(d) { return "translate(100,100)"; })
 			 .style("fill","black")	
 			 .text(function(d){ return d.text;})	 		
 
