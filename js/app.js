@@ -5,28 +5,28 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
      // Data for the chart
      $scope.data = [
-       {id:0, text:'Paragraph 0'},
-       {id:1, text:'Paragraph 1'},
-       {id:2, text:'Paragraph 2'},
-       {id:3, text:'Paragraph 3'}
+       {id:0, text:'Paragraph 0',diameter: 1443},
+       {id:1, text:'Paragraph 1',diameter: 2132},
+       {id:2, text:'Paragraph 2',diameter: 3234},
+       {id:3, text:'Paragraph 3',diameter: 5432}
      ];
 
      // Array of objects that correspond to each step
      $scope.settings = [
-       {color:'red', fontSize:20, filter:function(d){return d}},
-       {color:'blue', fontSize:10, filter:function(d){return d.id>2}},
-       {color:'orange', fontSize:100, filter:function(d){return d.id<3}},
-       {color:'green', fontSize:30, filter:function(d){return d}},
+       {diameter: 1443,filter:function(d){return d.id == 0}},
+       {diameter: 2132,filter:function(d){return d.id == 1}},
+       {diameter: 3234,filter:function(d){return d.id == 2}},
+       {diameter: 5432,filter:function(d){return d.id == 3}}
      ];
 
      $scope.step = 0;
 
      // Text for each section
-     $scope.sectionText = [
-       {text:'Section 0'},
-       {text:'Section 1'},
-       {text:'Section 2'},
-       {text:'Section 3'}
+     $scope.sectionSet = [
+       {text:'Section 0',color:'yellow'},
+       {text:'Section 1',color:'royalblue'},
+       {text:'Section 2',color:'orange'},
+       {text:'Section 3',color:'red'}
      ];
 
      // Desired section height
@@ -52,10 +52,37 @@ var myApp = angular.module('myApp', [])
           angular.element($window).bind("scroll", function() {
               scope.step = Math.ceil(($(window).scrollTop() - $("scroll.scroller").offset()["top"])/scope.sectionHeight);
               scope.$apply();
-              console.log($(window).scrollTop());
-              console.log($("scroll.scroller").offset()["top"]);
+         
           });
       }
     };
 })
+
+
+.directive('bubbleChart', function($filter, $compile) {
+	// Return your directive element
+	return {
+		restrict:'E', 
+    scope:false,
+		// Create a link function that allows dynamic element creation
+		link:function(scope,elem,attrs){
+			// Use the scope.$watch method to watch for changes to the step, then re-draw your chart
+			scope.$watch('step', function() {
+
+        // Instantiate your chart with given settings
+        var diameter = scope.settings[scope.step].diameter;
+        var myChart = BubbleChart().diameter(diameter);
+
+        // Get the current data
+        var currentData = scope.data.filter(scope.settings[scope.step].filter);
+        console.log(currentData)
+        console.log(scope.step)
+  			// Wrapper element to put your svg (chart) in
+  			wrapper = d3.select(elem[0])
+          .datum(currentData)
+          .call(myChart);
+			});
+		}
+	};
+});
 
