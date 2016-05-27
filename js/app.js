@@ -1,27 +1,24 @@
-
 var myApp = angular.module('myApp', [])
 
 // Main controller
 .controller('MainController', function($scope) {
-     // Data for the chart
-     $scope.data = [
-       {id:0, text:'No Bubble'},
-       {id:1, text:'Bubble 1'},
-       {id:2, text:'Bubble 2'},
-       {id:3, text:'Bubble 3'}
-     ];
+
+    $scope.data = [
+      {id: 0, color: '#1F3A93'},
+      {id: 1, color: '#1F3A93'},
+      {id: 2, color: '#1F3A93'},
+      {id: 3, color: '#1F3A93'}
+    ];
 
      // Array of objects that correspond to each step
      $scope.settings = [
-       {diameter: 84,filter:function(d){return d.id == 0}},
-       {diameter: 113,filter:function(d){return d.id == 1}},
-       {diameter: 223,filter:function(d){return d.id == 2}},
-       {diameter: 343,filter:function(d){return d.id == 3}}
+       {numD: 1, filter:function(d){return d.id == 0}},
+       {numD: 1, filter:function(d){return d.id == 1}},
+       {numD: 60, filter:function(d){return d.id == 2}},
+       {numD: 300, filter:function(d){return d.id == 3}}
      ];
 
      $scope.step = 0;
-
-     // Text for each section
      $scope.sectionSet = [
        {text:'In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.',color:'yellow'},
        {text:'After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.',color:'royalblue'},
@@ -31,7 +28,6 @@ var myApp = angular.module('myApp', [])
 
      // Desired section height
      $scope.sectionHeight = 800;
-
  })
 
 // Projects controller
@@ -48,7 +44,6 @@ var myApp = angular.module('myApp', [])
       scope:false, // use global scope
       // Create a link function that allows dynamic element creation
       link:function(scope, elem) {
-      	// console.log('test')
           angular.element($window).bind("scroll", function() {
               scope.step = Math.ceil(($(window).scrollTop() - $("scroll.scroller").offset()["top"])/scope.sectionHeight);
               scope.$apply();
@@ -58,34 +53,29 @@ var myApp = angular.module('myApp', [])
     };
 })
 
-
-.directive('bubbleChart', function($filter, $compile) {
+// Create a directive 'scatter' that creates scatterplots
+.directive('dots', function($filter, $compile) {
 	// Return your directive element
 	return {
-		restrict:'E', 
-    scope:false,
+		restrict:'E', // this directive is specified as an html element <scatter>
+  		scope:false,
 		// Create a link function that allows dynamic element creation
 		link:function(scope,elem,attrs){
 			// Use the scope.$watch method to watch for changes to the step, then re-draw your chart
 			scope.$watch('step', function() {
 
         // Instantiate your chart with given settings
-        var diameter = scope.settings[scope.step].diameter;
-        var myChart = BubbleChart().diameter(diameter);
+        var numDots = scope.settings[scope.step].numD;
+        var myChart = Dots().numNodes(numDots);
 
         // Get the current data
-        // var currentData = scope.data.filter(scope.settings[scope.step].filter);
-        var currentData = scope.data.filter(function(d){ return d.id == scope.step});
+        var currentData = scope.data.filter(scope.settings[scope.step].filter);
 
-        console.log(currentData)
   			// Wrapper element to put your svg (chart) in
-  			wrapper = d3.select(elem[0])
-          	.datum(currentData)
-          	.call(myChart);
+		wrapper = d3.select(elem[0])
+		          .datum(currentData)
+		          .call(myChart);
 			});
 		}
 	};
 });
-
-
-
