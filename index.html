@@ -23,7 +23,13 @@
 
 <body>
     <div class="container" ng-app="myApp" id="app" ng-controller="MainController">
-        <h1> TITLE </h1>
+      <div class="container" id="intro">
+      <h1>The Negative Effects of Driving Drunk</h1>
+      <br>
+      <h2>Driving under the influence has major consequences that don't just effect a single life.</h2>
+      <br>
+      <h3>Take, for instance, the story of Michael Collins...</h3>
+      </div>
         <section>
         <scroll class="scroller" ng-style="{'height':'100vh'}">
           <div ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">

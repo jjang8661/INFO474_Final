@@ -23,9 +23,9 @@ var myApp = angular.module('myApp', [])
 
      // Text for each section
      $scope.sectionSet = [
-       {text:'Section 1',color:'yellow'},
-       {text:'Section 2',color:'royalblue'},
-       {text:'Section 3',color:'orange'},
+       {text:'On March 28, 2014,22-year-old Michael Collins spent the evening out with friends at a spring formal near campus – he was just weeks away from graduating with a degree in exercise science from Illinois State University',color:'yellow'},
+       {text:'In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.',color:'royalblue'},
+       {text:'After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.',color:'orange'},
        {text:'Section 4',color:'red'}
      ];
 
