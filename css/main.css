@@ -4,13 +4,27 @@ body {
   font-family: Helvetica,sans-sarif;
   font-size: 16px;
 }
+
+header{
+  background-image: url(../imgs/header.jpeg);
+  height: 550px;
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+header h1 {
+    font-size: 60px;
+
+}
+
 /* Container for the scroller */
 .scroller {
   width:100%;
   display:inline-block;
   font-size:20px;
-  padding-left:10px;
-  margin-right:20px;
 }
 
 /* Selected section at full opacity */
@@ -28,7 +42,7 @@ body {
 .chart   {
   display:inline-block;
   position:fixed;
-  top:200px;
+  top:100px;
 }
 
 #intro {
@@ -38,4 +52,13 @@ body {
 #story {
   background-color: grey;
   border-style: groove;
+}
+
+#fatalText {
+  visibility: hidden;
+}
+#timebox {
+  position: fixed;
+  bottom: 0px;
+  text-align: right
 }

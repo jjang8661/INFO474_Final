@@ -5,10 +5,10 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
      // Data for the chart
      $scope.data = [
-       {id:0, text:'Bubble 1'},
-       {id:1, text:'Bubble 2'},
-       {id:2, text:'Bubble 3'},
-       {id:3, text:'Bubble 4'}
+       {id:0, text:'No Bubble'},
+       {id:1, text:'Bubble 1'},
+       {id:2, text:'Bubble 2'},
+       {id:3, text:'Bubble 3'}
      ];
 
      // Array of objects that correspond to each step
@@ -86,4 +86,6 @@ var myApp = angular.module('myApp', [])
 		}
 	};
 });
+
+
 

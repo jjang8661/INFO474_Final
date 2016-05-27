@@ -19,35 +19,50 @@
   <script src="js/BubbleChart.js"></script>
   <script src="js/main.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/timer.js"></script>
+
 </head>
 
 <body>
-    <div class="container" ng-app="myApp" id="app" ng-controller="MainController">
-      <div class="container" id="intro">
-      <h1>Drunk Driving Never Ends Well</h1>
-      <br>
-      <h2>Drinking and driving has major consequences that don't just effect the life of the drunk driver.</h2>
-      <br>
-      <h3>Take, for instance, the story of Michael Collins...</h3>
-      <br>
-      </div>
-      <div class="container" id="story">
-      <h4>On March 28, 2014, <br>
-        22-year-old Michael Collins spent the evening out with friends at a spring formal near campus – he was just weeks away from graduating with a degree in exercise science from Illinois State University. </h4>
-      </div>
-      <br>
-        <section>
-        <scroll class="scroller" ng-style="{'height':'100vh'}">
-          <div ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">
-           <div class="sectionText">
-            <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
-           </div>
+    <div ng-app="myApp" id="app">
+      <div ng-controller="MainController">
+        <header id="header">
+        <h1>Drunk Driving Never Ends Well</h1>
+        </header>
+        <div class="container" id="intro">
+          <br>
+          <h2>Drinking and driving has major consequences that don't just effect the life of the drunk driver.</h2>
+          <br>
+          <h3>Take, for instance, the story of Michael Collins...</h3>
+          <br>
+        </div> <!-- Close intro -->
 
-          </div>
+        <div class="container" id="story">
+        <h4>On March 28, 2014, <br>
+          22-year-old Michael Collins spent the evening out with friends at a spring formal near campus – he was just weeks away from graduating with a degree in exercise science from Illinois State University. </h4>
+        </div> <!-- Close story -->
 
-        </scroll>
-        <bubble-chart class="chart"></bubble-chart>
-        </section>
-    </div>
+        <br>
+          <section>
+            <scroll class="scroller" ng-style="{'height':'100vh'}">
+              <div ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">
+                 <div class="sectionText">
+                  <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
+                 </div>
+              </div>
+            </scroll>
+            <bubble-chart ng-hide="step < 1" class="chart"></bubble-chart>
+          </section>
+
+       <div ng-hide="step < 1" class="container" id='timebox'>
+        <h3><time id='time'>00:00:00</time></h3>
+        <div id="fatalText">
+          <p >While you are reading this,<br />
+           <span id="fatal">0</span> injured in a drunk driving crash</p>
+        </div>
+      </div>
+        </div> <!-- Close main controller -->
+    </div>  <!-- Close myApp -->
+
   </body>
 </html>
