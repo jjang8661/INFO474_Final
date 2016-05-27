@@ -34,3 +34,8 @@ body {
 #intro {
   text-align: center;
 }
+
+#story {
+  background-color: grey;
+  border-style: groove;
+}
