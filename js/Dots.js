@@ -3,7 +3,7 @@ var Dots = function() {
 	var width = 800,
       height = 400,
       padding = 10, // separation between nodes
-      maxRadius = 12;
+      radius = 12;
 
 	var n = 10; // total number of nodes
  	var m = 1;
@@ -45,22 +45,19 @@ var Dots = function() {
 
 		  	circles.enter()
 		        .insert("circle")
-		        .attr("r", 10)
+		        .attr("r", radius)
 		        .style("fill", function(d) { return d.color; });
 
 		    circles.exit().remove();
 
 		    circles.transition()
 		    	.duration(1000)
-		    	.attr('r', 10)
+		    	.attr('r', radius)
 		    	.style('fill', function(d) { return d.color; });
 
 		    function tick() {
 		    	circles.attr("cx", function(d) { return d.x; })
 		           .attr("cy", function(d) { return d.y; });
-		    // circles.each(gravity(.2 * e.alpha))
-		    //       .attr("cx", function(d) { return d.x; })
-		    //       .attr("cy", function(d) { return d.y; });
 		  	}
 
 			function gravity(alpha) {
@@ -75,7 +72,6 @@ var Dots = function() {
 
 	/*			GETTER/SETTER METHODS			*/
 
-	// chart base color
 	chart.color = function(value) {
 	    if(!arguments.length) return color;
 	    color = value;
@@ -85,6 +81,12 @@ var Dots = function() {
 	chart.numNodes = function(value) {
 	    if(!arguments.length) return n;
 	    n = value;
+	    return this;
+	};
+
+	chart.radius = function(value) {
+	    if(!arguments.length) return radius;
+	    radius = value;
 	    return this;
 	};
 
