@@ -12,6 +12,7 @@ var myApp = angular.module('myApp', [])
 
      // Array of objects that correspond to each step
      $scope.settings = [
+       {numD: 0, filter:function(d){return d.id == 1}},
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 10, filter:function(d){return d.id == 2}},
        {numD: 54, filter:function(d){return d.id == 3}},
@@ -22,7 +23,8 @@ var myApp = angular.module('myApp', [])
      $scope.sectionSet = [
        {text:'In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.',color:'#E0E0E0'},
        {text:'After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.',color:'#D0D0D0'},
-       {text:'Section 3',color:'#C0C0C0'},
+       {text:'Section 2',color:'#C0C0C0'},
+       {text:'Section 3',color:'#A0A0A0'},
        {text:'Section 4',color:'#A0A0A0'}
      ];
 
