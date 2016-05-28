@@ -46,7 +46,7 @@
           <section>
             <scroll class="scroller" ng-style="{'height':'100vh'}">
               <div ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">
-                 <div class="sectionText">
+                 <div class="sectionText" ng-hide="step < 1">
                   <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
                  </div>
               </div>

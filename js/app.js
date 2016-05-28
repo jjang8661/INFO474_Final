@@ -4,26 +4,26 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
 
     $scope.data = [
-      {id: 0, color: '#1F3A93'},
-      {id: 1, color: '#1F3A93'},
-      {id: 2, color: '#1F3A93'},
-      {id: 3, color: '#1F3A93'}
+      {id: 1, color: '#FFFFF7'},
+      {id: 2, color: '#FFFFF7'},
+      {id: 3, color: '#FFFFF7'},
+      {id: 4, color: '#FFFFF7'}
     ];
 
      // Array of objects that correspond to each step
      $scope.settings = [
-       {numD: 1, filter:function(d){return d.id == 0}},
        {numD: 1, filter:function(d){return d.id == 1}},
-       {numD: 60, filter:function(d){return d.id == 2}},
-       {numD: 300, filter:function(d){return d.id == 3}}
+       {numD: 10, filter:function(d){return d.id == 2}},
+       {numD: 54, filter:function(d){return d.id == 3}},
+       {numD: 300, filter:function(d){return d.id == 4}}
      ];
 
      $scope.step = 0;
      $scope.sectionSet = [
-       {text:'In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.',color:'yellow'},
-       {text:'After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.',color:'royalblue'},
-       {text:'Section 3',color:'orange'},
-       {text:'Section 4',color:'red'}
+       {text:'In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.',color:'#E0E0E0'},
+       {text:'After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.',color:'#D0D0D0'},
+       {text:'Section 3',color:'#C0C0C0'},
+       {text:'Section 4',color:'#A0A0A0'}
      ];
 
      // Desired section height
@@ -55,27 +55,27 @@ var myApp = angular.module('myApp', [])
 
 // Create a directive 'scatter' that creates scatterplots
 .directive('dots', function($filter, $compile) {
-	// Return your directive element
-	return {
-		restrict:'E', // this directive is specified as an html element <scatter>
-  		scope:false,
-		// Create a link function that allows dynamic element creation
-		link:function(scope,elem,attrs){
-			// Use the scope.$watch method to watch for changes to the step, then re-draw your chart
-			scope.$watch('step', function() {
+  // Return your directive element
+  return {
+    restrict:'E', // this directive is specified as an html element <scatter>
+      scope:false,
+    // Create a link function that allows dynamic element creation
+    link:function(scope,elem,attrs){
+      // Use the scope.$watch method to watch for changes to the step, then re-draw your chart
+      scope.$watch('step', function() {
 
         // Instantiate your chart with given settings
         var numDots = scope.settings[scope.step].numD;
-        var myChart = Dots().numNodes(numDots);
+        var myChart = Dots().numNodes(numDots).color('#303030').radius(8);
 
         // Get the current data
         var currentData = scope.data.filter(scope.settings[scope.step].filter);
 
-  			// Wrapper element to put your svg (chart) in
-		wrapper = d3.select(elem[0])
-		          .datum(currentData)
-		          .call(myChart);
-			});
-		}
-	};
+        // Wrapper element to put your svg (chart) in
+    wrapper = d3.select(elem[0])
+              .datum(currentData)
+              .call(myChart);
+      });
+    }
+  };
 });

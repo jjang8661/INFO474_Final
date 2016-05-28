@@ -1,11 +1,11 @@
 var Dots = function() {
 	var color = '#1F3A93';	// default color (some shade of blue)
-	var width = 800,
-      height = 400,
+	var width = 600,
+      height = 600,
       padding = 10, // separation between nodes
-      radius = 12;
+      radius = 10;
 
-	var n = 10; // total number of nodes
+	var n = 10; //  number of nodes
  	var m = 1;
 	var p = 10; // percent of potency
 	var nodes = [];
@@ -19,7 +19,7 @@ var Dots = function() {
 		selection.each(function(data) {
 			var svg = d3.select(this)
 						.selectAll('.dots').data(data);
-			svg.enter().insert('svg')
+			svg.enter().append('svg')
 						.attr('height', height)
 						.attr('width', width)
 						.attr('class', 'dots');
@@ -44,7 +44,7 @@ var Dots = function() {
 				      .data(nodes)
 
 		  	circles.enter()
-		        .insert("circle")
+		        .append("circle")
 		        .attr("r", radius)
 		        .style("fill", function(d) { return d.color; });
 
