@@ -54,6 +54,7 @@ header h1 {
 #story {
   background-color: grey;
   border-style: groove;
+  margin-bottom: 100px;
 }
 
 #fatalText {
