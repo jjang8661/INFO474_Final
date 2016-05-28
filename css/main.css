@@ -51,7 +51,19 @@ header h1 {
   text-align: center;
 }
 
-#story {
+#story_part1 {
+  background-color: grey;
+  border-style: groove;
+  margin-bottom: 50px;
+}
+
+#story_part2 {
+  background-color: grey;
+  border-style: groove;
+  margin-bottom: 50px;
+}
+
+#story_part3 {
   background-color: grey;
   border-style: groove;
   margin-bottom: 100px;
