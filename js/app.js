@@ -14,8 +14,8 @@ var myApp = angular.module('myApp', [])
      $scope.settings = [
        {numD: 0, filter:function(d){return d.id == 1}},
        {numD: 1, filter:function(d){return d.id == 1}},
-       {numD: 10, filter:function(d){return d.id == 2}},
-       {numD: 54, filter:function(d){return d.id == 3}},
+       {numD: 27, filter:function(d){return d.id == 2}},
+       {numD: 9967, filter:function(d){return d.id == 3}},
        {numD: 300, filter:function(d){return d.id == 4}}
      ];
 
@@ -68,7 +68,7 @@ var myApp = angular.module('myApp', [])
 
         // Instantiate your chart with given settings
         var numDots = scope.settings[scope.step].numD;
-        var myChart = Dots().numNodes(numDots).color('#303030').radius(8);
+        var myChart = Dots().numNodes(numDots).color('#303030');
 
         // Get the current data
         var currentData = scope.data.filter(scope.settings[scope.step].filter);
