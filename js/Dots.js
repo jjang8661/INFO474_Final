@@ -53,7 +53,7 @@ var Dots = function() {
 		    circles.exit().remove();
 
 		    circles.transition()
-		    	.duration(1000)
+		    	.duration(700)
 		    	.attr('r', function() { 
 		    		if(radiusChange) {
 		    			var area = Math.pow((height/2), 2)/ 3;

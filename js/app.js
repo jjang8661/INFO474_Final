@@ -15,7 +15,7 @@ var myApp = angular.module('myApp', [])
        {numD: 0, filter:function(d){return d.id == 1}},
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 27, filter:function(d){return d.id == 2}},
-       {numD: 9967, filter:function(d){return d.id == 3}},
+       {numD: 1750, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
        {numD: 300, filter:function(d){return d.id == 4}}
      ];
 
