@@ -3,12 +3,16 @@ var PieChart = function() {
 	//	Variables inside the function scope to track 
 	//			width, height, radius, colorRange, category, and category_values
 	//	Default values are given
-	var width = 1000,
-		height = 540,
+	var width = 910,
+		height = 450,
 		radius = Math.min(width, height) / 2,
-		colorRange = ['#0000b3','#0000cc','#1a1aff','#6666ff','#9999ff','#b3b3ff','#ccccff'],
+		colorRange = [],
 		category = 'title',
 		category_values = 'value';
+
+	var outerRadius = height / 2 - 20,
+	    innerRadius = outerRadius / 3,
+	    cornerRadius = 10;
 
 	//	Chart function to be returned by the PieChart function.
 	//	Parameter taken in represents your selection
@@ -19,18 +23,20 @@ var PieChart = function() {
 			var color = d3.scale.ordinal()
 					.range(colorRange);
 
-			//	Sets the inner and outer radius arcs of the pie chart
+			//	Sets the inner and outer radius arcs of the pie chart and donut hole
 			var arc = d3.svg.arc()
 				.outerRadius(radius - 10)
-				.innerRadius(0);
+				.innerRadius(innerRadius)
+				.padRadius(outerRadius)
 
 			//	Sets the inner and outer radius arcs for the category labels in the pie chart
 			var labelArc = d3.svg.arc()
 							.outerRadius(radius - 60)
-							.innerRadius(radius - 120);
+							.innerRadius(radius - 85);
 
 			//	Constructs a pie layout using the values of what category_value refers to
 			var pie = d3.layout.pie()
+							.padAngle(.02)
 							.sort(null)
 							.value(function(d) {return d[category_values]; });
 
@@ -53,6 +59,7 @@ var PieChart = function() {
 			//	New path elements are appended
 			g.append("path")
 				.attr("d", arc)
+				.on('mouseover', function(d) {return d.data[category_values]; })
 				.style("fill", function(d) {return color(d.data[category]); });
 
 			//	New text elements are appended
