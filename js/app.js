@@ -6,11 +6,11 @@ var myApp = angular.module('myApp', [])
     // Desired section height
     $scope.sectionHeight = 800;
     $scope.data = [
-      {id: 0, color: '#000000'},
-      {id: 1, color: '#000000'},
-      {id: 2, color: '#000000'},
-      {id: 3, color: '#000000'},
-      {id: 4, color: '#000000'}
+      {id: 0, color: '#DADFE1'},
+      {id: 1, color: '#DADFE1'},
+      {id: 2, color: '#DADFE1'},
+      {id: 3, color: '#DADFE1'},
+      {id: 4, color: '#F22613'}
     ];
 
      // Array of objects that correspond to each step
@@ -19,7 +19,7 @@ var myApp = angular.module('myApp', [])
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 27, filter:function(d){return d.id == 2}},
        {numD: 1000, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
-       {numD: 1, radius: 8, filter:function(d){return d.id == 4}}
+       {numD: 1, radius: 20, filter:function(d){return d.id == 4}}
      ];
 
      $scope.step = 0;
@@ -27,7 +27,7 @@ var myApp = angular.module('myApp', [])
        {text:'1 person is injured every 53 minutes in a drunk driving incident', color:'#000000', sh: 800},
        {text:'27 people are injured or killed per day in a drunk driving incident', color:'#000000', sh: 800},
        {text:'9,967 people are either injured or killed each year in a drunk driving incident', color:'#000000', sh: 800},
-       {text:'Section 3',color:'#000000', sh: 800},
+       {text:'It only takes ONE',color:'#000000', sh: 800},
        {text:'',color:'#000000', sh: 10}
      ]
  })
@@ -54,7 +54,7 @@ var myApp = angular.module('myApp', [])
     };
 })
 
-// Create a directive 'scatter' that creates scatterplots
+
 .directive('dots', function($filter, $compile) {
   // Return your directive element
   return {
@@ -69,9 +69,9 @@ var myApp = angular.module('myApp', [])
         var numDots = scope.settings[scope.step].numD;
         var myChart;
         if (typeof scope.settings[scope.step].radius !== 'undefined') {
-          myChart = Dots().numNodes(numDots).color('#DADFE1').radiusChange(false).radius(scope.settings[scope.step].radius);
+          myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color).radiusChange(false).radius(scope.settings[scope.step].radius);
         } else {
-          myChart = Dots().numNodes(numDots).color('#DADFE1');
+          myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color);
         }
         // var myChart = Dots().numNodes(numDots).color('#DADFE1');
 
