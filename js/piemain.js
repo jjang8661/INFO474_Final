@@ -2,9 +2,9 @@ $(function() {
 
 	var data = [
 	{title: 'Drunk Driver', value: 6391},
-	{title: 'Passenger with Drunk Driver', value: 1511},
-	{title: 'Occupants of Other Vehicles', value: 1241},
-	{title: 'Nonoccupants', value: 824}
+	{title: 'Drunk Driver Passenger', value: 1511},
+	{title: 'Other Vehicle Occupants', value: 1241},
+	{title: 'Non-Occupants', value: 824}
 	];
 
 	var myChart = PieChart();
