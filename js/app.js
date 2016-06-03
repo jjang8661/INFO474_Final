@@ -25,8 +25,8 @@ var myApp = angular.module('myApp', [])
      $scope.step = 0;
      $scope.sectionSet = [
        {text:'1 person is killed every 53 minutes in a drunk driving incident', color:'#000000', sh: 800},
-       {text:'27 people are killed per day in a drunk driving incident', color:'#000000', sh: 800},
-       {text:'9,967 people are killed each year in a drunk driving incident', color:'#000000', sh: 800},
+       {text:'27 people each day', color:'#000000', sh: 800},
+       {text:'9,967 people each year', color:'#000000', sh: 800},
        {text:'It only takes ONE',color:'#000000', sh: 800},
        {text:'',color:'#000000', sh: 10}
      ]
