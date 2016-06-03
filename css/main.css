@@ -4,6 +4,7 @@ body {
   font-family: Helvetica,sans-sarif;
   font-size: 16px;
   background-color: black;
+  color: #ECF0F1;
 }
 
 header{
@@ -14,7 +15,7 @@ header{
   padding-top: 100px;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  color: #ECF0F1;
 }
 
 header h1 {
@@ -39,6 +40,7 @@ header h1 {
   height: 50px;
   text-align: center;
   padding: 1em;
+  color: #ECF0F1;
 }
 
 .chart   {
@@ -52,12 +54,17 @@ header h1 {
 }
 
 #fatalText {
+  color: #ECF0F1;
   visibility: hidden;
 }
+
 #timebox {
   position: fixed;
   bottom: 0px;
-  text-align: right
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ECF0F1;
 }
 
 .arc text {
@@ -70,5 +77,5 @@ header h1 {
 }
 
 #pieDiv {
-  text-align: right;
+  text-align: center;
 }
