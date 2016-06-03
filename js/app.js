@@ -18,15 +18,15 @@ var myApp = angular.module('myApp', [])
        {numD: 0, filter:function(d){return d.id == 0}},
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 27, filter:function(d){return d.id == 2}},
-       {numD: 1000, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
+       {numD: 14000, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
        {numD: 1, radius: 20, filter:function(d){return d.id == 4}}
      ];
 
      $scope.step = 0;
      $scope.sectionSet = [
-       {text:'1 person is killed every 53 minutes in a drunk driving incident', color:'#000000', sh: 800},
-       {text:'27 people each day', color:'#000000', sh: 800},
-       {text:'9,967 people each year', color:'#000000', sh: 800},
+       {text:'1 person is killed every 13 minutes in a drunk driving incident', color:'#000000', sh: 800},
+       {text:'112 people each day', color:'#000000', sh: 800},
+       {text:'41,057 people each year', color:'#000000', sh: 800},
        {text:'It only takes ONE',color:'#000000', sh: 800},
        {text:'',color:'#000000', sh: 10}
      ]
