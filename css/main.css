@@ -47,26 +47,8 @@ header h1 {
   top:100px;
 }
 
-#intro {
-  text-align: center;
-}
-
-#story_part1 {
-  background-color: grey;
-  border-style: groove;
-  margin-bottom: 50px;
-}
-
-#story_part2 {
-  background-color: grey;
-  border-style: groove;
-  margin-bottom: 50px;
-}
-
-#story_part3 {
-  background-color: grey;
-  border-style: groove;
-  margin-bottom: 100px;
+#story {
+  color: white;
 }
 
 #fatalText {
@@ -76,4 +58,17 @@ header h1 {
   position: fixed;
   bottom: 0px;
   text-align: right
+}
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+#pieDiv {
+  text-align: right;
 }
