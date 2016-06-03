@@ -4,10 +4,10 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
 
     $scope.data = [
-      {id: 1, color: '#FFFFF7'},
-      {id: 2, color: '#FFFFF7'},
-      {id: 3, color: '#FFFFF7'},
-      {id: 4, color: '#FFFFF7'}
+      {id: 1, color: '#000000'},
+      {id: 2, color: '#000000'},
+      {id: 3, color: '#000000'}
+      // {id: 4, color: '#000000'}
     ];
 
      // Array of objects that correspond to each step
@@ -16,16 +16,16 @@ var myApp = angular.module('myApp', [])
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 27, filter:function(d){return d.id == 2}},
        {numD: 1000, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
-       {numD: 300, filter:function(d){return d.id == 4}}
+       // {numD: 300, filter:function(d){return d.id == 4}}
      ];
 
      $scope.step = 0;
      $scope.sectionSet = [
-       {text:'1 person is injured every 53 minutes in a drunk driving incident',color:'#E0E0E0'},
-       {text:'27 people are injured or killed per day in a drunk driving incident',color:'#D0D0D0'},
-       {text:'9,967 people are either injured or killed each year in a drunk driving incident',color:'#C0C0C0'},
-       {text:'Section 3',color:'#A0A0A0'},
-       {text:'Section 4',color:'#A0A0A0'}
+       {text:'1 person is injured every 53 minutes in a drunk driving incident', color:'#000000'},
+       {text:'27 people are injured or killed per day in a drunk driving incident', color:'#000000'},
+       {text:'9,967 people are either injured or killed each year in a drunk driving incident', color:'#000000'},
+       {text:'Section 3',color:'#000000'}
+       // {text:'Section 4',color:'#000000'}
      ];
 
      // Desired section height
@@ -68,7 +68,7 @@ var myApp = angular.module('myApp', [])
 
         // Instantiate your chart with given settings
         var numDots = scope.settings[scope.step].numD;
-        var myChart = Dots().numNodes(numDots).color('#303030');
+        var myChart = Dots().numNodes(numDots).color('#DADFE1');
 
         // Get the current data
         var currentData = scope.data.filter(scope.settings[scope.step].filter);
