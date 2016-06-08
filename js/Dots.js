@@ -37,8 +37,8 @@ var Dots = function() {
 			var force = d3.layout.force()
 		    	.nodes(nodes)
 		        .size([width, height])
-		        .gravity(0.02)
-		        .charge(-2000/n)
+		        .gravity(0.03)
+		        .charge(-2500/n)
 		        .on("tick", tick)
 		        .start();
 
@@ -53,7 +53,7 @@ var Dots = function() {
 		    circles.exit().remove();
 
 		    circles.transition()
-		    	.duration(800)
+		    	.duration(10)
 		    	// .delay(function(d,i){return i*20})
 		    	.attr('r', function() { 
 		    		if(radiusChange) {

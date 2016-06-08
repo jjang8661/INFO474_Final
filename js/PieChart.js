@@ -59,7 +59,6 @@ var PieChart = function() {
 			//	New path elements are appended
 			g.append("path")
 				.attr("d", arc)
-				.on('mouseover', function(d) {return d.data[category_values]; })
 				.style("fill", function(d) {return color(d.data[category]); });
 
 			//	New text elements are appended

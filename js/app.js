@@ -17,8 +17,8 @@ var myApp = angular.module('myApp', [])
      $scope.settings = [
        {numD: 0, filter:function(d){return d.id == 0}},
        {numD: 1, filter:function(d){return d.id == 1}},
-       {numD: 27, filter:function(d){return d.id == 2}},
-       {numD: 14000, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
+       {numD: 112, filter:function(d){return d.id == 2}},
+       {numD: 800, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
        {numD: 1, radius: 20, filter:function(d){return d.id == 4}}
      ];
 
