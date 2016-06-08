@@ -30,18 +30,32 @@ $(function() {
 
 	timer();
 
+	var maxTime = 2000; // 2 seconds
+	var time = 0;
+
+	function isScrolledIntoView(elem) {
+	    var docViewTop = $(window).scrollTop();
+	    var docViewBottom = docViewTop + $(window).height();
+	    var elemTop = $(elem).offset().top;
+	    var elemBottom = elemTop + $(elem).height();
+	    return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+	}
 
 
-    $("#typed").typed({
-	    // strings: ["On March 28,2014,<br> 22-year-old Michael Collins spent the evening out with friends at a spring formal near campus.", 
-	    // 			" In the early hours of March 29th, <br> Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in."],
-     //    typeSpeed: 5	0
-	     stringsElement: $('#typed-strings'),
-	     backSpeed: -50,
-	     showCursor: false
+	$(window).scroll(function() {    
+	    if(isScrolledIntoView($('#typed')))
+	    {
+       		$("#typed").typed({
+		     	stringsElement: $('#typed-strings'),
+		     	backSpeed: -50,
+		    	showCursor: false
+	        });
+	    }    
+	});
 
-    });
-    
+
+
+	// $('#typed').show(1000, onDivShow);
 
 
 });

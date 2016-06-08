@@ -31,7 +31,6 @@ var myApp = angular.module('myApp', [])
        {text:'',color:'#000000', sh: 10}
      ]
      
-     $scope.story = story;
  })
 
 // Projects controller

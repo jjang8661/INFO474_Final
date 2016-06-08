@@ -23,8 +23,7 @@ header h1 {
     font-size: 70px;
     font-family: Ubuntu;
     font-weight: 700;
-    text-shadow: 2px 2px #FF0000;
-
+    text-shadow: 2px 2px #000000;
 }
 
 #downArrow {
@@ -44,6 +43,7 @@ header h1 {
 
 #story {
   z-index:10000;
+  visibility: visible;
 }
 
 #typed {
@@ -54,7 +54,7 @@ header h1 {
   text-align: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  -webkit-animation-duration: 40s;
+  -webkit-animation-duration: 50s;
   -webkit-animation-name: changeImg;
 }
 

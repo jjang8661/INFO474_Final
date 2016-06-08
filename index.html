@@ -19,12 +19,12 @@
 
   <!-- Script files -->
   <script src="js/Dots.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/app.js"></script>
   <script src="js/timer.js"></script>
   <script src="js/PieChart.js"></script>
   <script src="js/piemain.js"></script>
   <script src="js/typed.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
 <!--   <script src="js/ExtendedArcs.js"></script>
   <script src="js/extendedarcsmain.js"></script> -->
 
@@ -46,28 +46,28 @@
           </div>
           <br>
           <h3>Take, for instance, the story of Michael Collins...</h3>
-          <br>
+          <img id="downArrow2" src="imgs/arrow_down.svg"/>
+
         </div> <!-- Close intro -->
         <br>
 
+        <div class="container" id ="story" ng-model="story">
+          <div id="typed"></div>
+            <div  id="typed-strings">
+              <p>On March 28, 2014, <br>
+              22-year-old Michael Collins spent the evening out with friends at a spring formal near campus.^2000</p>
+              <p> In the early hours of March 29th, <br>
+              Michael and his friends were picked up by a designated driver and were on their way home,^2000</p>
+              <p>when a drunk driver ran a red light and struck the vehicle Michael was riding in.^2000</p>
+              <p>Michael sustained severe head trauma and was rushed into emergency brain surgery.^2000</p>
+              <p>After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.^2000</p>
+            </div> 
+            <a href="#visualDiv"><img id="downArrow2" src="imgs/arrow_down.svg"/></a>
+        </div> <!-- Close container for stories -->
+
           <section id="scrollSec">
             <scroll class="scroller" ng-style="{'height':'100vh'}">
-              <div class="container" id ="story">
-                <div id="typed"></div>
-                  <div  id="typed-strings">
-                    <p>On March 28, 2014, <br>
-                    22-year-old Michael Collins spent the evening out with friends at a spring formal near campus.^2000</p>
-                    <p> In the early hours of March 29th, <br>
-                    Michael and his friends were picked up by a designated driver and were on their way home,^2000</p>
-                    <p>when a drunk driver ran a red light and struck the vehicle Michael was riding in.^2000</p>
-                    <p>Michael sustained severe head trauma and was rushed into emergency brain surgery.^2000</p>
-                    <p>After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.^2000</p>
-                  </div> 
-                  <a href="#visualDiv"><img id="downArrow2" src="imgs/arrow_down.svg"/></a>
-
-              </div> <!-- Close container for stories -->
-
-              <div id="visualDiv" ng-hide="step < -1" ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':section.sh + 'px','background-color':section.color}">
+              <div id="visualDiv" ng-hide="step < 0" ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':section.sh + 'px','background-color':section.color}">
                  <div class="sectionText">
                   <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
                  </div>
