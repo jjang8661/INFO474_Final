@@ -10,8 +10,6 @@ $(function() {
 
 	function add() {
 	    seconds++;
-
-
 	    if (seconds >= 60) {
 	        seconds = 0;
 	        minutes++;
@@ -22,16 +20,28 @@ $(function() {
 	        }
    		 }
    		 h1.textContent = (minutes ? (minutes > 9 ? minutes : minutes) : "0") + " minutes " + (seconds > 9 ? seconds : seconds) + " seconds";
-    
     	     	    	 fatal.textContent = death>0 ? (death ==1 ? death + " person is " : death + " people are") : 0;
-
     	 timer();
 	}
 
 	function timer() {
     	t = setTimeout(add, 1000);
-
 	}
+
 	timer();
+
+
+
+    $("#typed").typed({
+	    // strings: ["On March 28,2014,<br> 22-year-old Michael Collins spent the evening out with friends at a spring formal near campus.", 
+	    // 			" In the early hours of March 29th, <br> Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in."],
+     //    typeSpeed: 5	0
+	     stringsElement: $('#typed-strings'),
+	     backSpeed: -50,
+	     showCursor: false
+
+    });
+    
+
 
 });

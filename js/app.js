@@ -30,6 +30,8 @@ var myApp = angular.module('myApp', [])
        {text:'It only takes ONE',color:'#000000', sh: 800},
        {text:'',color:'#000000', sh: 10}
      ]
+     
+     $scope.story = story;
  })
 
 // Projects controller
@@ -47,8 +49,10 @@ var myApp = angular.module('myApp', [])
       // Create a link function that allows dynamic element creation
       link:function(scope, elem) {
           angular.element($window).bind("scroll", function() {
-              scope.step = Math.ceil(($(window).scrollTop() - $("scroll.scroller").offset()["top"])/scope.sectionHeight);
+              scope.step = Math.ceil(($(window).scrollTop()-$("#visualDiv").offset()["top"])/scope.sectionHeight);
               scope.$apply();
+              console.log(scope.step);
+              // $("scroll.scroller").offset()["top"]
           });
       }
     };

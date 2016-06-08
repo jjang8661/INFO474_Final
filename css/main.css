@@ -9,21 +9,102 @@ body {
 
 header{
   background-image: url(../imgs/header.jpeg);
-  height: 550px;
+  height: 100%;
   width: 100%;
   text-align: center;
   padding-top: 100px;
   background-repeat: no-repeat;
   background-size: cover;
   color: #ECF0F1;
+  position:relative;
 }
 
 header h1 {
-    font-size: 60px;
+    font-size: 70px;
+    font-family: Ubuntu;
+    font-weight: 700;
+    text-shadow: 2px 2px #FF0000;
 
 }
 
+#downArrow {
+  width: 50px;
+  bottom: 10%;
+  position:absolute;
+  z-index: 999;
+}
 
+#downArrow2 {
+  width: 50px;
+  bottom: 20%;
+  position: relative;
+  left: 50%;
+  z-index: 999;
+}
+
+#story {
+  z-index:10000;
+}
+
+#typed {
+  height: 700px;
+  font-size: 50px;
+  padding-top: 50px;
+  background-color:black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-animation-duration: 40s;
+  -webkit-animation-name: changeImg;
+}
+
+@keyframes changeImg {
+    25% {background-image: url('../imgs/collins.jpg');}
+    50% {background-image: url('../imgs/driving_drunk2.jpg');}
+    75% {background-image: url('../imgs/accident.jpg');}
+    100% {background-image: url('../imgs/heartbeat.jpg');}
+}
+
+#typed-strings {
+  font-size: 40px;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+#imgView {
+  -webkit-animation-duration: 20s;
+  -webkit-animation-name: showImg;
+  height: 750px;
+  width: 100%;
+  background-color:black;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@keyframes showImg {
+    25% {background-image: url('../imgs/driving_drunk.png');}
+    50% {background-image: url('../imgs/driving_rush.jpg');}
+}
 
 /* Container for the scroller */
 .scroller {
@@ -58,6 +139,10 @@ header h1 {
 #fatalText {
   color: #ECF0F1;
   visibility: hidden;
+}
+
+#textView {
+  -webkit-text-stroke: 1px black;
 }
 
 #timebox {
