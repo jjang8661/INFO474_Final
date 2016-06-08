@@ -50,7 +50,7 @@ var BubbleChart = function() {
             circle.transition()
              .duration(function(d){return d.id * (2000/data.length);})
 			.attr('transform', function(d) {return 'translate (' + d.x + ',' + d.y+ ')'; })
-			.attr('r', function(d){return d.r;})
+			.attr('r', 50)
 			 .style("fill",function(d){
 			 	if (d.id <= diffColor) {
 			 		return colorScale[0];
