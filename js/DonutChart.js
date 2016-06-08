@@ -9,9 +9,6 @@ var colorRange = ['red'],
 
 var	innerRadius = radius / 2.2;
 
-var category = 'title',
-	category_values = 'value';
-
 var chart = function(selection) {
 	selection.each(function(data) {
 
@@ -25,7 +22,7 @@ var chart = function(selection) {
 		var pie = d3.layout.pie()
 			.padAngle(.02)
 			.sort(null)
-			.value(function(d) { return d[category_values]; } );
+			.value(function(d) { return d.value; } );
 
 		var svg = d3.select(this).append("svg")
 			.attr("width", width)
@@ -48,8 +45,6 @@ var chart = function(selection) {
 		g.append("text")
 			.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
 			.attr("dy", ".35em")
-
-		g.select("text")
 			.text(function(d) { return d.data.key; });
 
 		svg.append("text")
@@ -115,24 +110,6 @@ var chart = function(selection) {
 			return colorRange;
 		}
 		colorRange = value;
-		return this;
-	};
-
-  	//	A method that updates the category
-	chart.category = function(value) {
-		if(!arguments.length) {
-			return category;
-		}
-		category = value;
-		return this;
-	};
-
-	//	A method that updates the category_values
-	chart.category_values = function(value) {
-		if(!arguments.length) {
-			return category_values;
-		}
-		category_values = value;
 		return this;
 	};
 

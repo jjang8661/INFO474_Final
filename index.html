@@ -21,15 +21,12 @@
   <!-- Script files -->
   <script src="js/Dots.js"></script>
   <script src="js/timer.js"></script>
-<!--   <script src="js/PieChart.js"></script>
-  <script src="js/piemain.js"></script> -->
+  <script src="js/BubbleChart.js"></script>
   <script src="js/DonutChart.js"></script>
   <script src="js/donutmain.js"></script>
   <script src="js/typed.js"></script>
   <script src="js/main.js"></script>
   <script src="js/app.js"></script>
-<!--   <script src="js/ExtendedArcs.js"></script>
-  <script src="js/extendedarcsmain.js"></script> -->
 
 </head>
 
@@ -68,22 +65,27 @@
 
           <section id="scrollSec">
             <scroll class="scroller" ng-style="{'height':'100vh'}">
-              <div id="visualDiv" ng-hide="step < 0" ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(101%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">
-                 <div class="sectionText">
-                  <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
+              <div id="visualDiv" ng-hide="step < 0" ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(120%)','background-color':section.color} || {'height':sectionHeight + 'px','background-color':section.color}">
+                 <div>
+                  <p ng-class="{msgBox: $last == true, sectionText: step >= 0}" ng-bind=section.text></p>
                  </div>
               </div>
             </scroll>
-            <dots ng-hide="step < 1" class="chart"></dots>
+            <dots ng-hide="step < 1 || step >6" class="chart"></dots>
           </section>
 
-       <div ng-hide="step < 1" class="container" id='timebox'>
-        <h3><time id='time'>00:00:00</time></h3>
-        <div id="fatalText">
-          <p >While you are reading this,<br />
-           <span id="fatal">0</span> injured in a drunk driving crash</p>
-        </div>
-      </div>
+           <div ng-hide="step < 1" class="container" id='timebox'>
+            <h3><time id='time'></time></h3>
+            <div id="fatalText">
+              <p >While you are reading this,<br />
+               <span id="fatal">0</span> injured in a drunk driving crash</p>
+            </div>
+          </div> <!-- Close timebox -->
+          <div id="msgBox">
+            <div id="typed-strings">
+              <p> </p>
+            </div>
+          </div>
         </div> <!-- Close main controller -->
     </div>  <!-- Close myApp -->
 
