@@ -35,7 +35,6 @@ header h1 {
 
 #downArrow2 {
   width: 50px;
-  bottom: 30%;
   position: relative;
   left: 50%;
   z-index: 999;
@@ -149,7 +148,7 @@ header h1 {
   position: fixed;
   bottom: 0px;
   text-align: center;
-  left: 50%;
+  left: 80%;
   transform: translateX(-50%);
   color: #ECF0F1;
 }
