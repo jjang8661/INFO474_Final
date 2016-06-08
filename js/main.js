@@ -41,7 +41,6 @@ $(function() {
 	    return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 	}
 
-
 	$(window).scroll(function() {    
 	    if(isScrolledIntoView($('#typed')))
 	    {
@@ -52,12 +51,11 @@ $(function() {
 	        });
 
 	        $("#typed").css({
-	        	  "-webkit-animation-duration": "40s",
+	        	  "-webkit-animation-duration": "50s",
   			      "-webkit-animation-name": "changeImg"
 	        });
 	    }    
 	});
-
 
 
 	// $('#typed').show(1000, onDivShow);
