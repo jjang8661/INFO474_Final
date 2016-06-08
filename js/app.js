@@ -9,8 +9,8 @@ var myApp = angular.module('myApp', [])
       {id: 0, color: '#DADFE1'},
       {id: 1, color: '#DADFE1'},
       {id: 2, color: '#DADFE1'},
-      {id: 3, color: '#DADFE1'},
-      {id: 4, color: '#F22613'}
+      {id: 3, color: '#DADFE1'}
+      // {id: 4, color: '#F22613'}
     ];
 
      // Array of objects that correspond to each step
@@ -18,17 +18,16 @@ var myApp = angular.module('myApp', [])
        {numD: 0, filter:function(d){return d.id == 0}},
        {numD: 1, filter:function(d){return d.id == 1}},
        {numD: 112, filter:function(d){return d.id == 2}},
-       {numD: 800, filter:function(d){return d.id == 3}}, //9000 is too big and cause lagging
-       {numD: 1, radius: 20, filter:function(d){return d.id == 4}}
+       {numD: 800, filter:function(d){return d.id == 3}}
+       // {numD: 1, radius: 20, filter:function(d){return d.id == 4}}
      ];
 
      $scope.step = 0;
      $scope.sectionSet = [
-       {text:'1 person is killed every 13 minutes in a drunk driving incident', color:'#000000', sh: 800},
-       {text:'112 people each day', color:'#000000', sh: 800},
-       {text:'41,057 people each year', color:'#000000', sh: 800},
-       {text:'It only takes ONE',color:'#000000', sh: 800},
-       {text:'',color:'#000000', sh: 10}
+       {text:'1 person is killed every 13 minutes in a drunk driving incident', color:'#000000'},
+       {text:'112 people each day', color:'#000000'},
+       {text:'41,057 people each year', color:'#000000'}
+       // {text:'It only takes ONE',color:'#000000', sh: 800}
      ]
      
  })
