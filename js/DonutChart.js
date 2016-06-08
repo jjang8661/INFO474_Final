@@ -1,78 +1,86 @@
+//	A reusable donut chart
 var DonutChart = function() {
 
-var width = 910,
-	height = 450,
-	radius = Math.min(width, height) / 2;
+	//	Default values assigned
+	var width = 910,
+		height = 450,
+		radius = Math.min(width, height) / 2;
 
-var colorRange = ['red'],
-	fontSize = radius / 4;
+	var colorRange = ['red'],
+		fontSize = radius / 4;
 
-var	innerRadius = radius / 2.2;
+	var	innerRadius = radius / 2.2;
 
-var chart = function(selection) {
-	selection.each(function(data) {
+	//	Chart function that draws the donut
+	var chart = function(selection) {
+		selection.each(function(data) {
 
-		var color = d3.scale.ordinal()
-					.range(colorRange);
+			//	Sets the color to the colorRange that will be used
+			var color = d3.scale.ordinal()
+						.range(colorRange);
 
-		var arc = d3.svg.arc()
-			.outerRadius(radius)
-			.innerRadius(innerRadius)
+			//	Sets the radius of the arcs of the donut
+			var arc = d3.svg.arc()
+				.outerRadius(radius)
+				.innerRadius(innerRadius)
 
-		var pie = d3.layout.pie()
-			.padAngle(.02)
-			.sort(null)
-			.value(function(d) { return d.value; } );
+			//	Sets the pie to slices with padAngles
+			var pie = d3.layout.pie()
+				.padAngle(.02)
+				.sort(null)
+				.value(function(d) { return d.value; } );
 
-		var svg = d3.select(this).append("svg")
-			.attr("width", width)
-			.attr("height", height)
-			.append("g")
-			.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-	
-		var g = svg.selectAll(".arc").data(pie(d3.entries(data)));
+			//	Sets svg to append the g elements
+			var svg = d3.select(this).append("svg")
+				.attr("width", width)
+				.attr("height", height)
+				.append("g")
+				.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+		
+			//	Binds the data
+			var g = svg.selectAll(".arc").data(pie(d3.entries(data)));
 			
 
-		//	New g elements entered
-		g.enter()
-			.append("g")
-			.attr("class", "arc");
+			//	New g elements entered
+			g.enter()
+				.append("g")
+				.attr("class", "arc");
 
-		g.append("path")
-			.attr("d", arc)
-			.style("fill", function(d) { return color(d.data.key); });
+			g.append("path")
+				.attr("d", arc)
+				.style("fill", function(d) { return color(d.data.key); });
 
-		g.append("text")
-			.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-			.attr("dy", ".35em")
-			.text(function(d) { return d.data.key; });
+			//	Appends the text of data keys (categories)
+			g.append("text")
+				.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+				.attr("dy", ".35em")
+				.text(function(d) { return d.data.key; });
 
-		svg.append("text")
-			.datum(data)
-			.attr("x", 0)
-			.attr("y", 0 + radius / 10)
-			.attr("class", "text-tooltip")
-			.style("text-anchor", "middle")
-			.attr("font-weight", "bold")
-			.style("font-size", fontSize + "px");
+			//	Appends text in the middle
+			svg.append("text")
+				.datum(data)
+				.attr("x", 0)
+				.attr("y", 0 + radius / 10)
+				.attr("class", "text-tooltip")
+				.style("text-anchor", "middle")
+				.attr("font-weight", "bold")
+				.style("font-size", fontSize + "px");
 
-		g.on("mouseover", function(obj) {
-			svg.select("text.text-tooltip")
-				.attr("fill", function(d) { return color(obj.data.key); })
-				.text(function(d) { return d[obj.data.key]; 
+			//	Removes g elements
+			g.data(pie(d3.entries(data))).exit().remove();
+
+			//	On "mouseover", the values will show in the center of the donut
+			g.on("mouseover", function(obj) {
+				svg.select("text.text-tooltip")
+					.attr("fill", function(d) { return color(obj.data.key); })
+					.text(function(d) { return d[obj.data.key]; 
+				});
 			});
-		});
 
-		g.on("mouseout", function(obj) {
-			svg.select("text.text-tooltip").text("");
-		});
-
-		g.data(pie(d3.entries(data))).exit().remove();
-
-		g.select("text")
-			.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; });
-
-		return chart;
+			//	On "mouseout", the center of the donut will be blank
+			g.on("mouseout", function(obj) {
+				svg.select("text.text-tooltip").text("");
+			});
 		})
 	};
 
@@ -94,7 +102,7 @@ var chart = function(selection) {
 		return this;
 	};
 
-	//	A method that updates the radius
+	//	A method that updates the radius for manual setting
 	chart.radius = function(value) {
 		if(!arguments.length) {
 			return radius;
@@ -102,6 +110,17 @@ var chart = function(selection) {
 		radius = value;
 		return this;
 	};
+
+	//	A method that updates the fontSize of the text
+	//	inside the donut
+	chart.fontSize = function(value) {
+		if(!arguments.length) {
+			return fontSize;
+		}
+		fontSize = value;
+		return this;
+	};
+
 
 	//	A method that updates the colorRange
 	//				(takes in an array)
@@ -113,6 +132,5 @@ var chart = function(selection) {
 		return this;
 	};
 
-  return chart;
-
+	return chart;
 }
