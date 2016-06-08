@@ -13,7 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
 
   <!-- Custom CSS -->
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css"/>
+
 
   <!-- Script files -->
   <script src="js/Dots.js"></script>
@@ -22,6 +24,7 @@
   <script src="js/timer.js"></script>
   <script src="js/PieChart.js"></script>
   <script src="js/piemain.js"></script>
+  <script src="js/typed.js"></script>
 <!--   <script src="js/ExtendedArcs.js"></script>
   <script src="js/extendedarcsmain.js"></script> -->
 
@@ -30,16 +33,16 @@
 <body>
     <div ng-app="myApp" id="app">
       <div ng-controller="MainController">
-        <header class="container" id="header">
-        <h1>Drunk Driving Never Ends Well</h1>
+        <header class="container" id="imgView">
+          <h1 id="textView">Drunk Driving Never Ends Well</h1>
+          <a href="#intro"><img id="downArrow" src="imgs/arrow_down.svg"/></a>
         </header>
         <div class="container" id="intro">
 
           <div id="pieDiv">
-                    <br>
-          <h2 id='pieChartComment'>Drinking and driving has major consequences</h2>
-          <h2>that don't just effect the life of the drunk driver.</h2>
-
+            <br>
+            <h2 id='pieChartComment'>Drinking and driving has major consequences</h2>
+            <h2>that don't just effect the life of the drunk driver.</h2>
           </div>
           <br>
           <h3>Take, for instance, the story of Michael Collins...</h3>
@@ -47,18 +50,22 @@
         </div> <!-- Close intro -->
         <br>
 
-        <div class="container" id ="story">
-            <h4>On March 28, 2014, <br> <br>
-              22-year-old Michael Collins spent the evening out with friends at a spring formal near campus – he was just weeks away from graduating with a degree in exercise science from Illinois State University.</h4>
-            <br>
-            <h4>In the early hours of March 29th, Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in. Michael sustained severe head trauma and was rushed into emergency brain surgery.</h4>
-            <br>
-            <h4>After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.</h4>
-        </div> <!-- Close container for stories -->
-        <br><br><br><br>
           <section id="scrollSec">
             <scroll class="scroller" ng-style="{'height':'100vh'}">
-              <div ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':section.sh + 'px','background-color':section.color}">
+              <div class="container" id ="story">
+                <div id="typed"></div>
+                  <div  id="typed-strings">
+                    <p>On March 28, 2014, <br>
+                    22-year-old Michael Collins spent the evening out with friends at a spring formal near campus.^1500</p>
+                    <p> In the early hours of March 29th, <br>
+                    Michael and his friends were picked up by a designated driver and were on their way home, 
+                    when a drunk driver ran a red light and struck the vehicle Michael was riding in.^1500</p>
+                    <p>Michael sustained severe head trauma and was rushed into emergency brain surgery.^1500</p>
+                    <p>After four days of fighting for his life, Michael succumbed to his injuries on April 2nd.^1500</p>
+                  </div> 
+              </div> <!-- Close container for stories -->
+
+              <div id="visualDiv" ng-hide="step < -1" ng-repeat="section in sectionSet" ng-style="$last == true && {'height':'calc(100%)','background-color':section.color} || {'height':section.sh + 'px','background-color':section.color}">
                  <div class="sectionText">
                   <p class="sectionText" ng-class="{selected: $index == step}" ng-bind=section.text></p>
                  </div>

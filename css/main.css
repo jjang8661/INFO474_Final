@@ -9,21 +9,75 @@ body {
 
 header{
   background-image: url(../imgs/header.jpeg);
-  height: 550px;
+  height: 100%;
   width: 100%;
   text-align: center;
   padding-top: 100px;
   background-repeat: no-repeat;
   background-size: cover;
   color: #ECF0F1;
+  position:relative;
 }
 
 header h1 {
-    font-size: 60px;
-
+    font-size: 70px;
+    font-family: Ubuntu;
 }
 
+header img {
+  width: 50px;
+  bottom: 10%;
+  position:absolute;
+}
 
+#story {
+  z-index:10000;
+}
+
+#typed-strings {
+  font-size: 40px;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+#downArrow {
+  z-index: 999;
+}
+
+#imgView {
+  -webkit-animation-duration: 20s;
+  -webkit-animation-name: showImg;
+  height: 750px;
+  width: 100%;
+  background-color:black;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@keyframes showImg {
+    25% {background-image: url('../imgs/driving_drunk.png');}
+    50% {background-image: url('../imgs/driving_rush.jpg');}
+}
 
 /* Container for the scroller */
 .scroller {
