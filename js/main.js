@@ -37,7 +37,8 @@ $(function() {
 	    // 			" In the early hours of March 29th, <br> Michael and his friends were picked up by a designated driver and were on their way home, when a drunk driver ran a red light and struck the vehicle Michael was riding in."],
      //    typeSpeed: 5	0
 	     stringsElement: $('#typed-strings'),
-	     backSpeed: -50
+	     backSpeed: -50,
+	     showCursor: false
 
     });
     
