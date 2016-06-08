@@ -3,7 +3,7 @@ var DonutChart = function() {
 
 	//	Default values assigned
 	var width = 910,
-		height = 450,
+		height = 445,
 		radius = Math.min(width, height) / 2;
 
 	var colorRange = ['red'],
@@ -53,8 +53,11 @@ var DonutChart = function() {
 			//	Appends the text of data keys (categories)
 			g.append("text")
 				.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+				.attr("dx", "-.1em")
 				.attr("dy", ".35em")
-				.text(function(d) { return d.data.key; });
+				.text(function(d) { return d.data.key; })
+				.style("fill", 'white')
+				.style("font-size", "12px");
 
 			//	Appends text in the middle
 			svg.append("text")
