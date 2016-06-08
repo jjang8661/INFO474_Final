@@ -1,6 +1,6 @@
 var Dots = function() {
 	var color = '#1F3A93';	// default color (some shade of blue)
-	var width = 800,
+	var width = 1200,
       height = 600,
       padding = 10, // separation between nodes
       maxRadius = 12,

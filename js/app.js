@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', [])
 .controller('MainController', function($scope) {
 
     // Desired section height
-    $scope.sectionHeight = 800;
+    $scope.sectionHeight = 1000;
     $scope.data = [
       {id: 0, color: '#DADFE1'},
       {id: 1, color: '#DADFE1'},
