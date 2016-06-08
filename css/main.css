@@ -114,6 +114,10 @@ header img {
   visibility: hidden;
 }
 
+#textView {
+  -webkit-text-stroke: 1px black;
+}
+
 #timebox {
   position: fixed;
   bottom: 0px;
