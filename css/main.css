@@ -23,6 +23,8 @@ header h1 {
 
 }
 
+
+
 /* Container for the scroller */
 .scroller {
   width:100%;
@@ -79,8 +81,9 @@ header h1 {
 #intro {
   color: white;
 }
+
 #pieDiv {
-  text-align: right;
+  text-align: left;
 }
 
 path {

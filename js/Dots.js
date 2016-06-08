@@ -37,8 +37,8 @@ var Dots = function() {
 			var force = d3.layout.force()
 		    	.nodes(nodes)
 		        .size([width, height])
-		        .gravity(.02)
-		        .charge(-1000/n)
+		        .gravity(0.02)
+		        .charge(-2000/n)
 		        .on("tick", tick)
 		        .start();
 
@@ -47,13 +47,14 @@ var Dots = function() {
 
 		  	circles.enter()
 		        .insert("circle")
-		        .attr("r", 10)
+		        .attr("r", radius)
 		        .style("fill", function(d) { return d.color; });
 
 		    circles.exit().remove();
 
 		    circles.transition()
-		    	.duration(700)
+		    	.duration(800)
+		    	// .delay(function(d,i){return i*20})
 		    	.attr('r', function() { 
 		    		if(radiusChange) {
 		    			var area = Math.pow((height/2), 2)/ 3;
@@ -104,10 +105,9 @@ var Dots = function() {
 		return this;
 	};
 
-	// set radius for individual circle and change radius to false if value is given
+	// set radius for individual circle and change radiusChance to false if value is given
 	chart.radius = function(value) {
 		if(!arguments.length) return radius;
-		
 		radiusChange = false;
 		radius = value;
 		return this;
