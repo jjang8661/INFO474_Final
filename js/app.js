@@ -69,22 +69,24 @@ var myApp = angular.module('myApp', [])
       scope.$watch('step', function() {
 
         // Instantiate your chart with given settings
-        var numDots = scope.settings[scope.step].numD;
-        var myChart;
-        if (typeof scope.settings[scope.step].radius !== 'undefined') {
-          myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color).radiusChange(false).radius(scope.settings[scope.step].radius);
-        } else {
-          myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color);
-        }
+        if(scope.settings[scope.step] != undefined){
+          var numDots = scope.settings[scope.step].numD;
+          var myChart;
+          if (typeof scope.settings[scope.step].radius !== 'undefined') {
+            myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color).radiusChange(false).radius(scope.settings[scope.step].radius);
+          } else {
+            myChart = Dots().numNodes(numDots).color(scope.data[scope.step].color);
+          }
         // var myChart = Dots().numNodes(numDots).color('#DADFE1');
-
+        
         // Get the current data
         var currentData = scope.data.filter(scope.settings[scope.step].filter);
-
+       
         // Wrapper element to put your svg (chart) in
-    wrapper = d3.select(elem[0])
-              .datum(currentData)
-              .call(myChart);
+        wrapper = d3.select(elem[0])
+                  .datum(currentData)
+                  .call(myChart);
+        }
       });
     }
   };

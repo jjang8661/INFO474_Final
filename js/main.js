@@ -50,6 +50,11 @@ $(function() {
 		     	backSpeed: -50,
 		    	showCursor: false
 	        });
+
+	        $("#typed").css({
+	        	  "-webkit-animation-duration": "40s",
+  			      "-webkit-animation-name": "changeImg"
+	        });
 	    }    
 	});
 

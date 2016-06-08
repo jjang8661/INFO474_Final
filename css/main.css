@@ -35,11 +35,12 @@ header h1 {
 
 #downArrow2 {
   width: 50px;
-  bottom: 20%;
+  bottom: 30%;
   position: relative;
   left: 50%;
   z-index: 999;
 }
+
 
 #story {
   z-index:10000;
@@ -54,12 +55,11 @@ header h1 {
   text-align: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  -webkit-animation-duration: 50s;
-  -webkit-animation-name: changeImg;
+
 }
 
 @keyframes changeImg {
-    25% {background-image: url('../imgs/collins.jpg');}
+    0% {background-image: url('../imgs/collins.jpg');}
     50% {background-image: url('../imgs/driving_drunk2.jpg');}
     75% {background-image: url('../imgs/accident.jpg');}
     100% {background-image: url('../imgs/heartbeat.jpg');}
