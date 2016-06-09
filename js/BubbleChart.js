@@ -60,10 +60,8 @@ var BubbleChart = function() {
 			 	}
 			 });
 
-
-	 			var text = svg.selectAll('text').data(newData)
-	 			
-				text.enter().append('text')
+	 			var texts = svg.selectAll('text').data(newData)
+	 			texts.enter().append('text')
 					.attr('x', function(d){return d.x;})
 					.attr('y', function(d) {return d.y;})
 					.text(function(d){return d.varName;})
@@ -71,8 +69,8 @@ var BubbleChart = function() {
 					.style('fill' , textColor)
 					.style('font-size', 20);
 
-							    circle.exit().remove();
-							    text.exit().remove();
+			    circle.exit().remove();
+			    texts.exit().remove();
 
 		    // Bind text with data and update it
 			/*var text = circles.append('text')

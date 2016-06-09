@@ -49,7 +49,7 @@ var myApp = angular.module('myApp', [])
        {text:'The number we see might be 1', color:'#000000', sh:800},
        {text:'However, the number of people that actually gets affected', color:'#000000', sh:800},
        {text:'is larger', color: '#000000', sh:800},
-       {text:'don\'t drink and drive, arrive alive',color:'#000f30',sh:800}
+       {text:'Don\'t drink and drive, arrive alive',color:'#000f30',sh:800}
      ]
  })
 
@@ -103,8 +103,10 @@ var myApp = angular.module('myApp', [])
             // Wrapper element to put your svg (chart) in
             chartWrapper.datum(currentData)
                   .call(myChart);
+
           }
-        } else if(scope.step <=6 && scope.step >= 3) {
+        } 
+         if(scope.step <=6 && scope.step >= 3) {
           d3.select('svg').remove();
           myChart = BubbleChart().variableName('person').valueName('numD');
           chartWrapper
