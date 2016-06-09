@@ -176,6 +176,10 @@ header h1 {
   text-align: center;
 }
 
+.bubble {
+  margin-left: 55%;
+}
+
 path {
   fill: #ccc;
   stroke: #333;
