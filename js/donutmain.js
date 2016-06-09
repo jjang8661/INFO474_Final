@@ -2,7 +2,7 @@ $(function() {
 
   var data = {};
     data["Drunk Driver"] = 6391;
-    data["Drunk Passenger"] = 1511;
+    data["Passengers"] = 1511;
     data["Other Vehicle"] = 1241;
     data["Non-Occupants"] = 824;
   
