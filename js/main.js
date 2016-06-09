@@ -57,20 +57,4 @@ $(function() {
 	    }    
 	});
 
-	var timeout;
-    $(window).scroll(function() {    
-	    if(isScrolledIntoView($('.msgBox')))
-	    {
-
-		clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            $(".msgBox").html('You already know when to stop');
-                    $(".msgBox").css({"font-weight": "700"});
-
-        }, 3000); // change the HTML after 2 seconds
-
-	    }    
-	});
-
-
 });
