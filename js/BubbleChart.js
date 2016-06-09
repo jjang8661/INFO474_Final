@@ -4,7 +4,7 @@ var BubbleChart = function() {
 	var diameter = 600,
 		width = 600,
 	 	height = 600,
-	    colorScale = ['#DADFE1', '#868a8b'],// drunk red('#F22613',  ), gray for victim, dark gray for affected1
+	    colorScale = ['#E2A89C', '#868a8b'],// drunk red('#F22613',  ), gray for victim, dark gray for affected1
 	    textColor = 'WHITE',
 	    diffColor = 1;
 	var variableName, valueName;
