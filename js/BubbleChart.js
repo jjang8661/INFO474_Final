@@ -5,7 +5,7 @@ var BubbleChart = function() {
 		width = 600,
 	 	height = 600,
 	    colorScale = ['#DADFE1', '#868a8b'],// drunk red('#F22613',  ), gray for victim, dark gray for affected1
-	    textColor = 'BLACK',
+	    textColor = 'WHITE',
 	    diffColor = 1;
 	var variableName, valueName;
 
@@ -34,6 +34,7 @@ var BubbleChart = function() {
 		 		   .attr("height", height)
 		 		   .attr("class","bubble");
 
+
 		       svg.exit().remove();
 
 
@@ -60,15 +61,17 @@ var BubbleChart = function() {
 			 });
 
 
-			 			circle.append('text')
+	 			var text = svg.selectAll('text').data(newData)
+	 				.enter().append('text')
 					.attr('x', function(d){return d.x;})
-					.attr('y', function(d) {return d.y})
-					.text(function(d){return d.varName})
+					.attr('y', function(d) {return d.y;})
+					.text(function(d){return d.varName;})
 					.style("text-anchor", "middle")
 					.style('fill' , textColor)
-					.style('font-size', function(d){return (d.r)/5});
+					.style('font-size', 20);
 
 							    circle.exit().remove();
+							    text.exit().remove();
 
 		    // Bind text with data and update it
 			/*var text = circles.append('text')
