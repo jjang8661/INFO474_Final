@@ -62,7 +62,8 @@ var BubbleChart = function() {
 
 
 	 			var text = svg.selectAll('text').data(newData)
-	 				.enter().append('text')
+	 			
+				text.enter().append('text')
 					.attr('x', function(d){return d.x;})
 					.attr('y', function(d) {return d.y;})
 					.text(function(d){return d.varName;})

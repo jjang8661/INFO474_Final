@@ -104,7 +104,7 @@ var myApp = angular.module('myApp', [])
             chartWrapper.datum(currentData)
                   .call(myChart);
           }
-        } else if(scope.step <=6 && scope.step >= 4) {
+        } else if(scope.step <=6 && scope.step >= 3) {
           d3.select('svg').remove();
           myChart = BubbleChart().variableName('person').valueName('numD');
           chartWrapper
